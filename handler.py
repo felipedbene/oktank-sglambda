@@ -1,4 +1,5 @@
 import boto3, os, datetime
+import json
 
 def main(event, context):
 
@@ -99,4 +100,9 @@ def main(event, context):
     EnableManagedSpotTraining = enableManagedSpotTraining
     )
     
-    print(resp)
+    #print(resp)
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps(resp)
+    }
