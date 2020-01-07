@@ -1,0 +1,30 @@
+service: sagemakerscheduler
+
+provider:
+  name: aws
+  runtime: python3.6
+  memorySize: 128
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - sagemaker:DescribeTrainingJob
+        - sagemaker:CreateTrainingJob
+      Resource: "arn:aws:sagemaker:*:*:*"
+    - Effect: "Allow"
+      Action:
+        - iam:PassRole
+      # Don't forget to update the account number and the name of the SageMaker service role
+      Resource: "arn:aws:iam::803186506512:role/service-role/AmazonSageMaker-ExecutionRole-20191125T103535"
+
+stage: dev
+region: us-east-1
+
+functions:
+  main:
+    handler: handler.main
+    environment:
+      training_job_name: "vrp-oktank-logistics-2020-01-03-19-45-39-122"
+      training_job_prefix: "LAMBDA-oktank-logistics"
+      instance_type: "ml.p3.2xlarge"
+      instance_count: "1"
+      diskSize : "30"
