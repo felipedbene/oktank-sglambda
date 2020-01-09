@@ -25,7 +25,7 @@ def main(event, context):
     "sagemaker_program": "\"train_vehicle_routing_problem.py\"",
     "sagemaker_region": "\"us-east-1\"",
     "sagemaker_s3_output": "\"s3://vrp-sagemaker-us-east-1-803186506512/\"",
-    "sagemaker_submit_directory": "\"s3://vrp-sagemaker-us-east-1-803186506512/vrp-oktank-logistics-2020-01-03-19-45-39-122/source/sourcedir.tar.gz\""
+    "sagemaker_submit_directory": "\"s3://vrp-sagemaker-us-east-1-803186506512/vrp-oktank-logistics-2020-01-09-17-22-47-110/source/sourcedir.tar.gz\""
     }
     
     algorithmSpecification = {
